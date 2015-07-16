@@ -10,6 +10,7 @@ Source:		http://download.kde.org/stable/applications/%{version}/src/%{name}-%{ve
 BuildRequires:	libkdegames-devel
 Requires:	libkdegames-common
 BuildRequires:	kdelibs-devel
+BuildRequires:	cmake(KDEGames)
 
 %description
 Lieutnant Skat (from German "Offiziersskat") is a fun and engaging card game
