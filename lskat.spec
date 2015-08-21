@@ -1,6 +1,6 @@
 Name:		lskat
-Version:	15.04.3
-Release:	2
+Version:	15.08.0
+Release:	1
 Epoch:		1
 Summary:	Lieutnant skat
 Group:		Graphical desktop/KDE
@@ -30,9 +30,9 @@ in artificial intelligence.
 %setup -q
 
 %build
-%cmake_kde4
+%cmake_kde4 \
+	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
 %make
 
 %install
 %makeinstall_std -C build
-
