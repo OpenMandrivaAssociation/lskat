@@ -1,5 +1,5 @@
 Name:		lskat
-Version:	15.08.0
+Version:	15.08.1
 Release:	2
 Epoch:		1
 Summary:	Lieutnant skat
