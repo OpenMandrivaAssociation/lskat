@@ -1,6 +1,6 @@
 Name:		lskat
-Version:	15.12.3
-Release:	2
+Version:	16.04.0
+Release:	1
 Epoch:		1
 Summary:	Lieutnant skat
 Group:		Graphical desktop/KDE
