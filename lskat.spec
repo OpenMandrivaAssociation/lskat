@@ -1,28 +1,39 @@
 Name:		lskat
-Version:	17.04.2
+Version:	17.08.3
 Release:	1
 Epoch:		1
-Summary:	Lieutnant skat
+Summary:	Lieutenant skat
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://www.kde.org/applications/games/lskat/
-Source:		http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	libkdegames-devel
-Requires:	libkdegames-common
-BuildRequires:	kdelibs-devel
-BuildRequires:	cmake(KDEGames)
+Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5Crash)
+BuildRequires:	cmake(KF5GuiAddons)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5KDEGames)
+BuildRequires:	cmake(KF5WidgetsAddons)
+BuildRequires:	cmake(KF5XmlGui)
+BuildRequires:	cmake(Qt5Core)
+BuildRequires:	cmake(Qt5Gui)
+BuildRequires:	cmake(Qt5Svg)
+BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	ninja
 
 %description
-Lieutnant Skat (from German "Offiziersskat") is a fun and engaging card game
+Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game
 for two players, where the second player is either live opponent, or a built
 in artificial intelligence.
 
-%files
-%{_bindir}/lskat                                                                                       
-%{_datadir}/applications/kde4/lskat.desktop                                                            
-%{_datadir}/apps/lskat                                                                                 
-%doc %{_docdir}/*/*/lskat                                                                              
-%{_iconsdir}/hicolor/*/apps/lskat.png   
+%files -f %{name}.lang
+%{_bindir}/lskat
+%{_datadir}/applications/org.kde.lskat.desktop
+%{_datadir}/lskat
+%{_iconsdir}/hicolor/*/apps/lskat.png
+%{_datadir}/kxmlgui5/lskat
+%{_datadir}/metainfo/org.kde.lskat.appdata.xml
 
 #------------------------------------------------------------------------------
 
@@ -30,9 +41,10 @@ in artificial intelligence.
 %setup -q
 
 %build
-%cmake_kde4 \
+%cmake_kde5 \
 	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
-%make
+%ninja
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
+%find_lang %{name} --with-html --all-name
