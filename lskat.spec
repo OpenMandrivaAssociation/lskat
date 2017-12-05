@@ -1,5 +1,5 @@
 Name:		lskat
-Version:	17.08.3
+Version:	17.11.90
 Release:	1
 Epoch:		1
 Summary:	Lieutenant skat
