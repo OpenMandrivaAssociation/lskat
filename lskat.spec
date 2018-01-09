@@ -1,5 +1,5 @@
 Name:		lskat
-Version:	17.11.90
+Version:	17.12.1
 Release:	1
 Epoch:		1
 Summary:	Lieutenant skat
@@ -28,6 +28,7 @@ for two players, where the second player is either live opponent, or a built
 in artificial intelligence.
 
 %files -f %{name}.lang
+%{_sysconfdir}/xdg/lskat.categories
 %{_bindir}/lskat
 %{_datadir}/applications/org.kde.lskat.desktop
 %{_datadir}/lskat
