@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   lskat-17.12.1.tar.xz: 66a8afc497bae1a27c2b98b7f7145802dbea2e5c
+sources:
+  lskat-17.12.2.tar.xz: 9d4f61dc49f43919cdf10f381aca95ac7f2ffe74
