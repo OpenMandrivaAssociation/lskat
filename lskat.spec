@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name:		lskat
-Version:	19.04.3
+Version:	19.07.80
 Release:	1
 Epoch:		1
 Summary:	Lieutenant skat
@@ -34,7 +34,7 @@ for two players, where the second player is either live opponent, or a built
 in artificial intelligence.
 
 %files -f %{name}.lang
-%{_sysconfdir}/xdg/lskat.categories
+%{_datadir}/qlogging-categories5/lskat.categories
 %{_bindir}/lskat
 %{_datadir}/applications/org.kde.lskat.desktop
 %{_datadir}/lskat
