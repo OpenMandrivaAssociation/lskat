@@ -1,0 +1,68 @@
+diff -up lskat-19.08.2/src/gameview.cpp.omv~ lskat-19.08.2/src/gameview.cpp
+--- lskat-19.08.2/src/gameview.cpp.omv~	2019-10-16 12:07:51.362736698 +0200
++++ lskat-19.08.2/src/gameview.cpp	2019-10-16 12:11:52.278075727 +0200
+@@ -52,7 +52,7 @@ GameView::GameView(const QSize &size, in
+     // Cache on
+     setCacheMode(QGraphicsView::CacheBackground);
+     setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
+-    setOptimizationFlags(QGraphicsView::DontClipPainter |
++    setOptimizationFlags(//QGraphicsView::DontClipPainter |
+                          QGraphicsView::DontSavePainterState |
+                          QGraphicsView::DontAdjustForAntialiasing);
+ 
+@@ -95,7 +95,7 @@ GameView::~GameView()
+ void GameView::updateAndAdvance()
+ {
+     static int elapsed = -1;
+-    static QTime timer;
++    static QElapsedTimer timer;
+     if (elapsed < 0)
+     {
+         timer.start();
+@@ -118,7 +118,7 @@ void GameView::updateAndAdvance()
+ // Slot called by the framework when the window is resized.
+ void GameView::resizeEvent(QResizeEvent *e)
+ {
+-    QTime t;
++    QElapsedTimer t;
+     t.start();
+     if (global_debug > 2) qCDebug(LSKAT_LOG) << "RESIZE EVENT " << e->size() << " oldSize="<< e->oldSize() << " at " << t.msecsTo(mTimeStart);
+     double diffW = double(e->oldSize().width() - e->size().width());
+@@ -182,7 +182,7 @@ void GameView::rescaleTheme()
+         return;
+     }
+ 
+-    QTime t;
++    QElapsedTimer t;
+     t.start();
+ 
+     if (global_debug > 2) qCDebug(LSKAT_LOG) << "Theme queue rescale start at " << t.msecsTo(mTimeStart);
+@@ -217,7 +217,7 @@ void GameView::mouseReleaseEvent(QMouseE
+ 
+ void GameView::drawItems(QPainter *painter, int numItems, QGraphicsItem *items[], const QStyleOptionGraphicsItem options[])
+ {
+-    QTime time;
++    QElapsedTimer time;
+     time.start();
+     QGraphicsView::drawItems(painter, numItems, items, options);
+ 
+diff -up lskat-19.08.2/src/gameview.h.omv~ lskat-19.08.2/src/gameview.h
+--- lskat-19.08.2/src/gameview.h.omv~	2019-10-16 12:08:38.915001616 +0200
++++ lskat-19.08.2/src/gameview.h	2019-10-16 12:08:52.229075728 +0200
+@@ -33,6 +33,7 @@
+ #include <QSize>
+ #include <QTime>
+ #include <QWidget>
++#include <QElapsedTimer>
+ 
+ // Forward declaration
+ class ThemeManager;
+@@ -116,7 +117,7 @@ private:
+     // Active input offset
+     QPoint mInputOffset;
+     // Theme queue delay time [ms]
+-    QTime mTimeStart;
++    QElapsedTimer mTimeStart;
+     // Debug frame rate sprite
+     QGraphicsTextItem *mFrameSprite;
+     // Time between updates

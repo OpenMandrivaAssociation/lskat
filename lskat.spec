@@ -9,6 +9,7 @@ Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
 URL:		http://www.kde.org/applications/games/lskat/
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Patch0:		lskat-19.08.2-qt-5.14.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5CoreAddons)
@@ -45,7 +46,7 @@ in artificial intelligence.
 #------------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %cmake_kde5 \
