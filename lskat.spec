@@ -2,7 +2,7 @@
 
 Name:		lskat
 Version:	20.03.90
-Release:	1
+Release:	2
 Epoch:		1
 Summary:	Lieutenant skat
 Group:		Graphical desktop/KDE
