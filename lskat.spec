@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name:		lskat
-Version:	20.07.90
+Version:	20.08.0
 Release:	1
 Epoch:		1
 Summary:	Lieutenant skat
