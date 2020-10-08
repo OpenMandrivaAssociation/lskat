@@ -1,8 +1,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name:		lskat
-Version:	20.08.1
-Release:	2
+Version:	20.08.2
+Release:	1
 Epoch:		1
 Summary:	Lieutenant skat
 Group:		Graphical desktop/KDE
