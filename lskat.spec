@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name:		lskat
-Version:	20.12.3
+Version:	21.03.80
 Release:	1
 Epoch:		1
 Summary:	Lieutenant skat
@@ -39,7 +39,6 @@ in artificial intelligence.
 %{_datadir}/applications/org.kde.lskat.desktop
 %{_datadir}/lskat
 %{_iconsdir}/hicolor/*/apps/lskat.png
-%{_datadir}/kxmlgui5/lskat
 %{_datadir}/metainfo/org.kde.lskat.appdata.xml
 
 #------------------------------------------------------------------------------
