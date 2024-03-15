@@ -5,7 +5,7 @@
 
 Name:		plasma6-lskat
 Version:	24.02.0
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 Summary:	Lieutenant skat
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
