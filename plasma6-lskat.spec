@@ -4,7 +4,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name:		plasma6-lskat
-Version:	24.05.0
+Version:	24.05.2
 Release:	%{?git:0.%{git}.}1
 Summary:	Lieutenant skat
 Group:		Graphical desktop/KDE
