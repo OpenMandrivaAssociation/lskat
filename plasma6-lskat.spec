@@ -9,7 +9,7 @@ Release:	%{?git:0.%{git}.}1
 Summary:	Lieutenant skat
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-URL:		http://www.kde.org/applications/games/lskat/
+URL:		https://www.kde.org/applications/games/lskat/
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/games/lskat/-/archive/%{gitbranch}/lskat-%{gitbranchd}.tar.bz2#/lskat-%{git}.tar.bz2
 %else
