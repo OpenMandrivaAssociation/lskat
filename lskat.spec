@@ -7,7 +7,7 @@ Epoch:		1
 Summary:	Lieutenant skat
 Group:		Graphical desktop/KDE
 License:	GPLv2 and LGPLv2 and GFDL
-URL:		http://www.kde.org/applications/games/lskat/
+URL:		https://www.kde.org/applications/games/lskat/
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5Config)
