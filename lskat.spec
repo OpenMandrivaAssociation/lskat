@@ -4,7 +4,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name:		lskat
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 Summary:	Lieutenant skat
 Group:		Graphical desktop/KDE
@@ -32,7 +32,11 @@ BuildRequires:	cmake(Qt6Svg)
 BuildRequires:	cmake(Qt6Widgets)
 BuildRequires:	cmake(Qt6Test)
 BuildRequires:	cmake(Phonon4Qt6)
-BuildRequires:	ninja
+
+%rename plasma6-lskat
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game
@@ -47,19 +51,3 @@ in artificial intelligence.
 %{_datadir}/lskat
 %{_iconsdir}/hicolor/*/apps/lskat.png
 %{_datadir}/metainfo/org.kde.lskat.appdata.xml
-
-#------------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n lskat-%{?git:%{gitbranchd}}%{!?git:%{version}}
-
-%build
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja \
-	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
-%ninja
-
-%install
-%ninja_install -C build
-%find_lang %{name} --with-html --all-name
